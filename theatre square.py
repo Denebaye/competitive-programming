@@ -14,4 +14,5 @@ if m%a!= 0:
 if n%a!= 0:
     y += 1
 print(x*y)    
+
     
