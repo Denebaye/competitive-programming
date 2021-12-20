@@ -1,0 +1,5 @@
+line = input()
+line = line.split()
+m = int(line[0])
+n = int(line[1])
+print(m*n//2)
