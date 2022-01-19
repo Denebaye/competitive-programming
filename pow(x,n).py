@@ -10,10 +10,6 @@ class Solution:
             if n % 2 != 0:
                 return x*ans
             
-            return ans
-        ans = evPow(x,abs(n))
-        if n > 0:
-            return ans
-        else:
-            return 1/ans
-                    
+            return ans*(x if n % 2 else 1)
+        
+        return evPow(x,abs(n)) ** (-1 if n < 0 else 1)
