@@ -19,9 +19,7 @@ def countSwaps(a):
     for i in range(0,x):
         for j in range(0,x):
             if  j<x-1 and a[j]>a[j+1] :
-                c = a[j+1]
-                a[j+1]=a[j]
-                a[j]=c
+                a[j + 1],a[j] = a[j],a[j + 1]
                 kutir = kutir + 1
     print("Array is sorted in",kutir,"swaps.")
     print("First Element:",a[0])
