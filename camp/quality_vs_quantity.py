@@ -22,3 +22,6 @@ while tests:
             print("NO")
         
     tests -= 1
+    # time and space complexity
+    # tiem = O(nlog(n))
+    # space = O(1)
