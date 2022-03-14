@@ -14,7 +14,7 @@ class Solution:
                 count += 1
                 ptr += 2
             elif ptr == N - 1 and ptr and flowerbed[ptr] == 0 and flowerbed[ptr - 1] == 0:
-                count += 1
+                count += 1  
                 break
             else: 
                 ptr += 3

@@ -10,16 +10,19 @@ while tests:
     
     left = 1
     right = len(candidate) - 1
+    flag = True
     while left < right:
         if pre_sum < pos_sum:
+            flag = False
             print("YES")
             break
         left += 1
         right -= 1
         pre_sum += candidate[left]
         pos_sum += candidate[right]
-        if left >= right:
-            print("NO")
+        
+    if flag:
+        print("NO")
         
     tests -= 1
     # time and space complexity
