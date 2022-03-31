@@ -10,4 +10,4 @@ class Solution:
             fastptr = fastptr.next.next
             slowptr = slowptr.next
             
-        return slowptr     
+        return slowptr  
