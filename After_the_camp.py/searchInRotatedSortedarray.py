@@ -1,75 +1,40 @@
 class Solution:
-    def search(self, nums: List[int], target: int) -> int:
-        if nums[0] <= nums[len(nums) - 1]:
-            left = 0
-            right = len(nums) - 1
-            while left <= right:
-                mid = left + (right - left)//2
-                if nums[mid] == target:
-                    return mid
-                if nums[mid] > target:
-                    right = mid - 1
-                else:
-                    left = mid + 1
-            return - 1
+    def findPivot(self,arr): 
         
+        right = len(arr) - 1
         left = 0
-        right = len(nums) - 1
-        pivot = 0
         
-        
-        
-        
-        
-        
-        
-        
-        while left <= right:
+        while left < right:
             mid = left + (right - left)//2
-            
-            if nums[mid] == nums[left] and nums[mid] < nums[0]:
-                pivot = mid
-                break
-                
-            if nums[mid] >= nums[0]:
+            if arr[mid] < arr[right]:
+                right = mid
+            else:
                 left = mid + 1
-            else:       
-                pivot = mid
-                right = mid - 1      
-            
-            
-        # print(pivot)
-        if target >= nums[0]:
-            left = 0
-            right = pivot
-            while left <= right:
-                mid = left + (right - left)//2
-                if nums[mid] == target:
-                    return mid
-                if nums[mid] > target:
-                    right = mid - 1
-                else:
-                    left = mid + 1
-            return - 1
+        return left
+    def binarySearch(self,l,r,arr,target):
+        
+        while l <= r:
+            mid = l + (r - l)//2
+            if arr[mid] == target:
+                return mid
+            elif arr[mid] > target:
+                r = mid - 1
+            else:
+                l = mid + 1
+        return -1
+                
+    def search(self, nums: List[int], target: int) -> int:
+        if nums[0] == target:return 0
+        x = self.binarySearch(0,self.findPivot(nums) - 1,nums,target)
+        
+        y = self.binarySearch(self.findPivot(nums),len(nums) -1,nums,target)
+        
+        if x >= 0:
+            return x
+        if y >=0:
+            return y
+        return -1
         
         
         
-        else:
-            left = pivot 
-            right = len(nums) - 1
-            while left <= right:
-                mid = left + (right - left)//2
-                if nums[mid] == target:
-                    return mid
-                if nums[mid] > target:
-                    right = mid - 1
-                else:
-                    left = mid + 1
-            return - 1
-
-            
-            
-            
-            
-            
-            
+        
