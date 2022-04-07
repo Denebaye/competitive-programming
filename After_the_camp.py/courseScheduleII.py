@@ -28,5 +28,5 @@ class Solution:
             return ans
         return []
 # time and space complexity
-# time 
+# time O(n + numofedges)
 # space = O(n)
