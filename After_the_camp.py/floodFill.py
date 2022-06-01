@@ -14,4 +14,4 @@ class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, newColor: int) -> List[List[int]]:
         mySet = set()
         self.dfs(image,sr,sc,newColor,mySet)
-        return image
+        return images
