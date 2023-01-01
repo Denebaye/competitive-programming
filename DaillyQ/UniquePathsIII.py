@@ -7,7 +7,7 @@ class Solution:
         visited = set()
 
         def helper(i,j,count):
-            if i >= row or i < 0 or j >= col or j < 0 or :
+            if i >= row or i < 0 or j >= col or j < 0:
                 return
             
             if grid[i][j] == -1 or grid[i][j] == 1 or (i,j) in visited:
