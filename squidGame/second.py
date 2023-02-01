@@ -3,17 +3,14 @@ class Solution:
         n, m = len(mat), len(mat[0])
         dp = [[mat[i][j] for j in range(m)] for i in range(n)]
 
-        # Prefix Sums Left to Right
         for i in range(n):
             for j in range(m):
                 dp[i][j] += (dp[i][j-1] if j > 0 else 0)
         
-        # Prefix Sums of Sums Top to Bottom
         for j in range(m):
             for i in range(n):
                 dp[i][j] += (dp[i-1][j] if i > 0 else 0)
                         
-        # Update input Mat with sum per cell
         for i in range(n):
             for j in range(m):
                 x1, x2 = max(0, j-k), min(j+k, m-1)
