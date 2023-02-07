@@ -1,8 +1,15 @@
 class Solution:
-    def minOperations(self, directoryLogs: List[str]) -> int:
-        numSteps = 0
-        for entry in directoryLogs: 
-            if entry == "./": continue
-            elif entry == "../": numSteps = max(0, numSteps-1) # parent directory
-            else: numSteps += 1 # child directory 
-        return numSteps 
+    def isRobotBounded(self, robotInstructions):
+        horizMove, vertMove = 0, 1
+        currX, currY = 0, 0
+
+        for ltr in 4 * robotInstructions:
+            if ltr == "G":
+                currX += horizMove
+                currY += vertMove
+            elif ltr == "L":
+                horizMove, vertMove = -vertMove, horizMove
+            else:
+                horizMove, vertMove = vertMove, -horizMove
+
+        return (currX, currY) == (0, 0)
