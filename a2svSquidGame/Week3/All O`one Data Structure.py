@@ -59,9 +59,6 @@ class DoubleLinkedList(object):
     
 class AllOne(object):
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
         self.dll, self.key_counter = DoubleLinkedList(), defaultdict(int)
         self.node_freq = {0:self.dll.get_sentinel_head()}
 
@@ -74,11 +71,6 @@ class AllOne(object):
         return
 
     def inc(self, key):
-        """
-        Inserts a new key <Key> with value 1. Or increments an existing key by 1.
-        :type key: str
-        :rtype: void
-        """
         self.key_counter[key] += 1
         cf, pf = self.key_counter[key], self.key_counter[key]-1
         if cf not in self.node_freq:
@@ -89,11 +81,6 @@ class AllOne(object):
             self._rmv_key_pf_node(pf, key)
 
     def dec(self, key):
-        """
-        Decrements an existing key by 1. If Key's value is 1, remove it from the data structure.
-        :type key: str
-        :rtype: void
-        """
         if key in self.key_counter:
             self.key_counter[key] -= 1
             cf, pf = self.key_counter[key], self.key_counter[key]+1
@@ -106,15 +93,7 @@ class AllOne(object):
             self._rmv_key_pf_node(pf, key)
 
     def getMaxKey(self):
-        """
-        Returns one of the keys with maximal value.
-        :rtype: str
-        """
         return self.dll.get_tail().get_any_key() if self.dll.get_tail().count() > 0 else ""
 
     def getMinKey(self):
-        """
-        Returns one of the keys with Minimal value.
-        :rtype: str
-        """
         return self.dll.get_head().get_any_key() if self.dll.get_tail().count() > 0 else ""
